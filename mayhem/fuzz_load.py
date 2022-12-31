@@ -15,6 +15,8 @@ def TestOneInput(data):
             f.name = 'test.10o'
             gr.load(f)
     except (AssertionError, KeyError):
+        if random.random() > 0.99:
+            raise e
         return -1
     except IndexError as e:
         if random.random() > 0.99:
@@ -27,7 +29,7 @@ def TestOneInput(data):
     except ValueError as e:
         if any(matcher in str(e) for matcher in value_err_matchers):
             return -1
-        raise
+        raise e
 
 
 
