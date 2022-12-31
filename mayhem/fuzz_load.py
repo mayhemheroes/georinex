@@ -14,11 +14,7 @@ def TestOneInput(data):
         with fdp.ConsumeMemoryFile(all_data=True, as_bytes=False) as f:
             f.name = 'test.10o'
             gr.load(f)
-    except (AssertionError, KeyError) as e:
-        if random.random() > 0.99:
-            raise e
-        return -1
-    except IndexError as e:
+    except (AssertionError, KeyError, IndexError) as e:
         if random.random() > 0.99:
             raise e
         return -1
