@@ -1,0 +1,9 @@
+project: georinex
+target: parse-load
+testsuite:
+    - file://mayhem/testsuite
+
+cmds:
+  - cmd: /src/mayhem/fuzz_load.py
+    libfuzzer: true
+    timeout: 25
